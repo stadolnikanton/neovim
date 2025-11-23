@@ -1,18 +1,16 @@
 return {
     cmd = {"ruff-lsp"},
     filetypes = {"python"},
-    settings = {
-        ignore = {
-        "F4",
-        "E2",
-        "E3",
-        "E1",
-        "W",
-        "C9",
-        "B",
-      },
-        fixAll = true,
-        organizeImports = true,
+    init_options = {
+        settings = {
+            select = "ALL",
+            ignore = {
+                "F401",  -- unused imports
+                "F841",  -- unused variables
+                "E402",  -- imports not at top (для Django)
+            },
+            lineLength = 79,
+        }
     },
     on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
