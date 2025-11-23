@@ -18,7 +18,6 @@ return {
             "json",
             "json5",
             "python",
-
         },
         autoinstall = true,
         highlight = {

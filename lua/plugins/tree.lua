@@ -13,6 +13,7 @@ return{
             centralize_selection = true,
         },
         renderer = {
+            decorators = { "Git", "Open", "Hidden", "Modified", "Bookmark", "Diagnostics", "Copied", "Cut", },
             indent_markers = {
                 enable = true,
                 inline_arrows = true,
@@ -26,7 +27,7 @@ return{
         indent_width = 4,
         icons = {
             webdev_colors = true,
-            git_placement = 'after',
+            git_placement = 'before',
             show = {
                 file = true,
                 folder = true,
@@ -45,12 +46,12 @@ return{
 
     actions = {
         open_file = {
-            quit_on_open = false,
+            quit_on_open = true,
             window_picker = {
                 enable = true,
             }
         }
     },
-    on_attach = my_on_attach
+    on_attach = my_on_attach,
 }
 }
