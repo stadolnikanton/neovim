@@ -7,7 +7,7 @@ return {
             ignore = {
                 "F401",  -- unused imports
                 "F841",  -- unused variables
-                "E402",  -- imports not at top (для Django)
+                "E402",
             },
             lineLength = 79,
         }
