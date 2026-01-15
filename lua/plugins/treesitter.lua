@@ -8,6 +8,7 @@ return {
         ensure_installed = {
             "html",
             "lua",
+            "luadoc",
             "vim",
             "vimdoc",
             "htmldjango",
@@ -19,6 +20,12 @@ return {
             "json",
             "json5",
             "python",
+            "bash",
+            "c",
+            "query",
+            "regex",
+            "php",
+            "blade",
         },
         autoinstall = true,
         highlight = {
@@ -29,4 +36,3 @@ return {
         },
     },
 }
-

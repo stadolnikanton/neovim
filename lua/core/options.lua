@@ -23,7 +23,9 @@ opt.scrolloff = 8             -- Минимальное число строк н
 opt.signcolumn = "yes"        -- Всегда показывать колонку знаков
 opt.updatetime = 50           -- Частота обновления (мс)
 opt.completeopt = 'menuone,noselect'  -- Настройки автодополнения
-opt.laststatus = 0
+opt.laststatus = 3  -- Глобальный статус-бар
+opt.cmdheight = 0  -- Скрыть командную строку (noice будет показывать команды)
+opt.showmode = false  -- Скрыть режим (noice покажет)
 
 -- Python-специфичные настройки
 g.python3_host_prog = vim.fn.exepath('python3')  -- Использовать Python3
