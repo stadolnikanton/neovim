@@ -14,12 +14,13 @@ return {
     },
     opts = {
       ensure_installed = {
-          "lua_ls",
-          "pyright",
-          "html",
-          "cssls",
-          "jsonls",
-          "sqlls",
+        "lua_ls",
+        "pyright",
+        "html",
+        "cssls",
+        "jsonls",
+        "sqlls",
+        "emmet",
       }
     }
   }
