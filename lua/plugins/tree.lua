@@ -27,13 +27,13 @@ return {
             },
             indent_width = 2,
             icons = {
-                webdev_colors = true,
-                git_placement = 'before',
+                webdev_colors = false,
+                git_placement = 'after',
                 show = {
                     file = true,
                     folder = true,
                     folder_arrow = true,
-                    git = true
+                    git = false
                 }
             }
         },

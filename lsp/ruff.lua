@@ -1,12 +1,12 @@
 return {
-    cmd = {"ruff-lsp"},
-    filetypes = {"python"},
+    cmd = { "ruff-lsp" },
+    filetypes = { "python" },
     init_options = {
         settings = {
             select = "ALL",
             ignore = {
-                "F401",  -- unused imports
-                "F841",  -- unused variables
+                "F401", -- unused imports
+                "F841", -- unused variables
                 "E402",
             },
             lineLength = 79,
