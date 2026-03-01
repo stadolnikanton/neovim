@@ -13,6 +13,29 @@ shortcut('n', '<leader>q', ':q<cr>', { desc = 'Exit without save' })
 -- Открытие/Закрытие файлового дерева
 shortcut('n', '<leader>e', ':NvimTreeToggle<cr>', { desc = '[E]xplorer toggle' })
 
+-- ===== LSP ДОКУМЕНТАЦИЯ =====
+-- Hover (документация под курсором)
+shortcut('n', 'K', vim.lsp.buf.hover, { desc = '📖 Документация' })
+
+-- Signature help (параметры функции)
+shortcut('n', '<leader>K', vim.lsp.buf.signature_help, { desc = '📝 Параметры' })
+
+-- Переходы
+shortcut('n', 'gd', vim.lsp.buf.definition, { desc = '🔍 К определению' })
+shortcut('n', 'gr', vim.lsp.buf.references, { desc = '🔎 Использования' })
+shortcut('n', 'gD', vim.lsp.buf.declaration, { desc = '📜 К объявлению' })
+shortcut('n', 'gi', vim.lsp.buf.implementation, { desc = '⚙️ К реализации' })
+shortcut('n', 'gt', vim.lsp.buf.type_definition, { desc = '🏷️ К типу' })
+
+-- Переименовать
+shortcut('n', '<leader>rn', vim.lsp.buf.rename, { desc = '✏️ Переименовать' })
+
+-- Диагностки
+shortcut('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '💡 Исправить' })
+shortcut('n', '[d', vim.diagnostic.goto_prev, { desc = '⬆️ Пред. ошибка' })
+shortcut('n', ']d', vim.diagnostic.goto_next, { desc = '⬇️ След. ошибка' })
+shortcut('n', '<leader>d', vim.diagnostic.open_float, { desc = '❗ Ошибки строки' })
+
 -- Навигация между окнами
 local function setup_window_navigation()
     local opts = { noremap = true, silent = true }
