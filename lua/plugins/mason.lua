@@ -4,7 +4,19 @@ return {
   },
   {
     "mason-org/mason.nvim",
-    opts = {}
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+        keymaps = {
+          toggle_server_expandability = "<CR>",
+          toggle_package_expandability = "<CR>",
+        },
+      },
+    }
   },
   {
     "mason-org/mason-lspconfig.nvim",
@@ -16,12 +28,17 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
+        "ts_ls",
+        "clangd",
+        "gopls",
         "html",
         "cssls",
         "jsonls",
         "sqlls",
-        "emmet",
-      }
+      },
+      automatic_installation = {
+        exclude = { "lua_ls" },  -- lua_ls ставим вручную
+      },
     }
   }
 }

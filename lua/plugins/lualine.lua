@@ -6,16 +6,16 @@ return {
         options = {
             location = 'top',
             icons_enabled = true,
-            theme = 'rose-pine',
-            component_separators = { left = '│', right = '│' },
-            section_separators = { left = '', right = '' },
+            theme = 'gruvbox',
+            component_separators = '',  -- Убрал разделители (минимализм)
+            section_separators = '',    -- Убрал разделители
             disabled_filetypes = {
-                statusline = {},
-                winbar = {},
+                statusline = { 'dashboard', 'snacks_dashboard', 'lazy' },
+                winbar = { 'dashboard', 'snacks_dashboard' },
             },
             ignore_focus = {},
             always_divide_middle = true,
-            globalstatus = false,
+            globalstatus = true,
             refresh = {
                 statusline = 1000,
                 tabline = 1000,
@@ -25,7 +25,7 @@ return {
         sections = {
             lualine_a = { 'mode' },
             lualine_b = { 'branch', 'diff', 'diagnostics' },
-            lualine_c = { 'filename' },
+            lualine_c = { { 'filename', file_status = true, path = 1 } },
             lualine_x = { 'encoding', 'fileformat', 'filetype' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
@@ -41,6 +41,6 @@ return {
         tabline = {},
         winbar = {},
         inactive_winbar = {},
-        extensions = {}
+        extensions = { 'nvim-tree', 'lazy', 'mason' }
     }
 }

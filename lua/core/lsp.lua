@@ -1,17 +1,24 @@
+-- Включаем LSP серверы
 vim.lsp.enable({
     "lua_ls",
-    "ruff",
+    "pyright",
+    "ts_ls",
+    "clangd",
+    "gopls",
     "html",
+    "cssls",
+    "jsonls",
+    "sqlls",
 })
 
-
+-- Настройка диагностик (минимализм + информативность)
 vim.diagnostic.config({
     virtual_text = {
         severity = {
             min = vim.diagnostic.severity.WARN,
         },
         prefix = "●",
-        source = "always",
+        source = "if_many",  -- Показывать только если много проблем
     },
     virtual_lines = false,
     underline = true,
@@ -25,10 +32,10 @@ vim.diagnostic.config({
     },
     signs = {
         text = {
-            [vim.diagnostic.severity.ERROR] = "󰅚",
-            [vim.diagnostic.severity.WARN] = "󰀪",
-            [vim.diagnostic.severity.INFO] = "󰋽",
-            [vim.diagnostic.severity.HINT] = "󰌶",
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
         },
         numhl = {
             [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
@@ -59,3 +66,103 @@ vim.diagnostic.open_float = function(opts)
     opts.border = opts.border or _border
     return vim.diagnostic.open_float(opts)
 end
+
+-- Настройка LSP для конкретных языков (загружается после установки плагинов)
+local ok, lspconfig = pcall(require, 'lspconfig')
+if not ok then
+    return
+end
+
+-- Python (pyright)
+lspconfig.pyright.setup({
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = 'openFilesOnly',
+            },
+        },
+    },
+})
+
+-- TypeScript/JavaScript (ts_ls)
+lspconfig.ts_ls.setup({
+    settings = {
+        typescript = {
+            inlayHints = {
+                includeInlayParameterNameHints = "none",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = false,
+                includeInlayVariableTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = false,
+                includeInlayFunctionLikeReturnTypeHints = false,
+                includeInlayEnumMemberValueHints = false,
+            },
+        },
+        javascript = {
+            inlayHints = {
+                includeInlayParameterNameHints = "none",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayVariableTypeHints = false,
+                includeInlayFunctionLikeReturnTypeHints = false,
+            },
+        },
+    },
+})
+
+-- C/C++ (clangd)
+lspconfig.clangd.setup({
+    cmd = { "/opt/homebrew/opt/llvm/bin/clangd" },
+    capabilities = {
+        offsetEncoding = "utf-8",
+    },
+})
+
+-- Go (gopls)
+lspconfig.gopls.setup({
+    settings = {
+        gopls = {
+            gofumpt = true,
+            usePlaceholders = true,
+            staticcheck = true,
+            semanticTokens = true,
+        },
+    },
+})
+
+-- Lua
+lspconfig.lua_ls.setup({
+    settings = {
+        Lua = {
+            runtime = {
+                version = "LuaJIT",
+            },
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
+
+-- HTML
+lspconfig.html.setup({
+    filetypes = { "html", "templ", "gohtml" },
+})
+
+-- CSS
+lspconfig.cssls.setup({})
+
+-- JSON
+lspconfig.jsonls.setup({})
+
+-- SQL
+lspconfig.sqlls.setup({})

@@ -17,5 +17,25 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  checker = { enabled = true },
+  checker = {
+    enabled = false,  -- Отключил автопроверку (экономит ресурсы)
+    frequency = 3600,
+    notify = false,
+  },
+  change_detection = {
+    enabled = false,  -- Отключил (экономит ресурсы)
+    notify = false,
+  },
+  performance = {
+    cache = { enabled = true },
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
 })
