@@ -34,6 +34,72 @@ nvim
 
 ---
 
+## 📋 ТРЕБОВАНИЯ И ЗАВИСИМОСТИ:
+
+### Минимальные требования:
+- **Neovim** ≥ 0.9.0
+- **git** — для клонирования и LazyGit
+- **Node.js** ≥ 18 — для некоторых плагинов
+
+### Зависимости для языков:
+
+#### Python:
+```bash
+# macOS
+brew install python3
+
+# Debian/Ubuntu
+sudo apt install -y python3 python3-pip
+```
+
+#### JavaScript/TypeScript:
+```bash
+# macOS
+brew install node
+
+# Debian/Ubuntu
+sudo apt install -y nodejs npm
+```
+
+#### C/C++:
+```bash
+# macOS
+brew install llvm
+
+# Debian/Ubuntu
+sudo apt install -y clangd
+```
+
+#### Go:
+```bash
+# macOS
+brew install go
+
+# Debian/Ubuntu
+sudo apt install -y golang-go
+```
+
+#### Lua:
+```bash
+# macOS
+brew install lua
+
+# Debian/Ubuntu
+sudo apt install -y lua5.4
+```
+
+### Установка Node.js (рекомендуется):
+```bash
+# macOS
+brew install node
+
+# Debian/Ubuntu
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+---
+
 ## 🎯 Настроенные языки:
 
 | Язык | LSP | Форматтер | Статус |
