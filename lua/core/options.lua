@@ -3,29 +3,31 @@ local g = vim.g
 
 
 -- Основные настройки
-opt.number = true             -- Номера строк
-opt.relativenumber = true     -- Относительные номера строк
-opt.tabstop = 4               -- 1 таб = 4 пробела
-opt.shiftwidth = 4            -- Сдвиг на 4 пробела
-opt.expandtab = true          -- Преобразование табов в пробелы
-opt.smartindent = true        -- Умные отступы
-opt.wrap = false              -- Отключить перенос строк
-opt.termguicolors = true      -- 24-битные цвета
-opt.swapfile = false          -- Не использовать swap-файлы
-opt.backup = false            -- Не создавать backup-файлы
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"  -- Каталог для undo-файлов
-opt.undofile = true           -- Сохранять историю изменений
-opt.hlsearch = false          -- Подсветка результатов поиска
-opt.incsearch = true          -- Инкрементальный поиск
-opt.ignorecase = true         -- Игнорировать регистр при поиске
-opt.smartcase = true          -- Учитывать регистр при наличии заглавных букв
-opt.scrolloff = 8             -- Минимальное число строк над/под курсором
-opt.signcolumn = "yes"        -- Всегда показывать колонку знаков
-opt.updatetime = 50           -- Частота обновления (мс)
-opt.completeopt = 'menuone,noselect'  -- Настройки автодополнения
-opt.laststatus = 3  -- Глобальный статус-бар
-opt.cmdheight = 0  -- Скрыть командную строку (noice будет показывать команды)
-opt.showmode = false  -- Скрыть режим (noice покажет)
-
+opt.number = true                                  -- Номера строк
+opt.relativenumber = true                          -- Относительные номера строк
+opt.tabstop = 4                                    -- 1 таб = 4 пробела
+opt.shiftwidth = 4                                 -- Сдвиг на 4 пробела
+opt.expandtab = true                               -- Преобразование табов в пробелы
+opt.smartindent = true                             -- Умные отступы
+opt.wrap = false                                   -- Отключить перенос строк
+opt.termguicolors = true                           -- 24-битные цвета
+opt.swapfile = false                               -- Не использовать swap-файлы
+opt.backup = false                                 -- Не создавать backup-файлы
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Каталог для undo-файлов
+opt.undofile = true                                -- Сохранять историю изменений
+opt.hlsearch = false                               -- Подсветка результатов поиска
+opt.incsearch = true                               -- Инкрементальный поиск
+opt.ignorecase = true                              -- Игнорировать регистр при поиске
+opt.smartcase = true                               -- Учитывать регистр при наличии заглавных букв
+opt.scrolloff = 8                                  -- Минимальное число строк над/под курсором
+opt.signcolumn = "yes"                             -- Всегда показывать колонку знаков
+opt.updatetime = 50                                -- Частота обновления (мс)
+opt.completeopt = 'menuone,noselect'               -- Настройки автодополнения
+opt.laststatus = 3                                 -- Глобальный статус-бар
+opt.cmdheight = 0                                  -- Скрыть командную строку (noice будет показывать команды)
+opt.showmode = false                               -- Скрыть режим (noice покажет)
+opt.encoding = 'utf-8'
+opt.fileencodings = 'utf-8,cp1251,koi8-r,ucs-2le,latin1'
+scriptencoding = 'utf-8'
 -- Python-специфичные настройки
-g.python3_host_prog = vim.fn.exepath('python3')  -- Использовать Python3
+g.python3_host_prog = vim.fn.exepath('python3') -- Использовать Python3
